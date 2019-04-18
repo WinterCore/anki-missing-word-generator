@@ -1,0 +1,43 @@
+{
+  "name": "anki-missing-word",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env ENVIRONMENT=development nodemon --watch dist/index.min.js dist/index.min.js",
+    "start": "node index.min.js",
+    "build": "webpack --progress --mode production",
+    "build:watch": "webpack --watch --progress --mode development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.20.0",
+    "fs-extra": "^7.0.1",
+    "ramda": "^0.26.1",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/commander": "^2.12.2",
+    "@types/fs-extra": "^5.0.5",
+    "@types/node": "^11.13.4",
+    "@types/progress": "^2.0.3",
+    "@types/ramda": "^0.26.6",
+    "@types/request-promise": "^4.1.42",
+    "@typescript-eslint/eslint-plugin": "^1.6.0",
+    "@typescript-eslint/parser": "^1.6.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.16.0",
+    "json-loader": "^0.5.7",
+    "nodemon": "^1.18.11",
+    "source-map-support": "^0.5.12",
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.4.3",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.0",
+    "webpack-node-externals": "^1.7.2"
+  }
+}

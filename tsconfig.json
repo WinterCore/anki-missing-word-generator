@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "module"                 : "commonjs",
+        "target"                 : "ES5",
+        "lib"                    : ["esnext", "dom"],
+        "sourceMap"              : true,
+        "experimentalDecorators" : true,
+        "emitDecoratorMetadata"  : true
+    }
+}

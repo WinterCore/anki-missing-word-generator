@@ -1,0 +1,55 @@
+{
+    "extends"       : "plugin:@typescript-eslint/recommended",
+    "parser"        : "@typescript-eslint/parser",
+    "parserOptions" : {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "rules"   : {
+        "no-multi-spaces"   : 0,
+        "eol-last"          : 0,
+        "consistent-return" : 0,
+        "no-unused-vars"    : 1,
+        "quotes"            : ["warn", "double"],
+        "indent"            : ["warn", 4],
+        "key-spacing"       : [
+            "warn",
+            {
+                "singleLine": {
+                    "beforeColon" : true,
+                    "afterColon"  : true
+                },
+                "multiLine": {
+                    "beforeColon" : true,
+                    "afterColon"  : true
+                },
+                "align": {
+                    "on"          : "colon",
+                    "beforeColon" : true,
+                    "afterColon"  : true
+                }
+            }
+        ],
+        "no-param-reassign": [
+            "error",
+            {
+                "props": false
+            }
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "curly": [
+            "error",
+            "multi-line"
+        ],
+        "no-use-before-define" : [
+            "error",
+            {
+                "classes"   : false,
+                "functions" : false
+            }
+        ]
+    }
+}
