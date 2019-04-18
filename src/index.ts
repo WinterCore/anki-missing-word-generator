@@ -19,7 +19,7 @@ program
   .option("-c, --count [number]", "The number of examples to extract for each definition (sense)")
   .option("-k, --app-key [key]", "An Oxford Dictionaries api key (you can get it from https://developer.oxforddictionaries.com)")
   .option("-d, --app-id [key]", "An Oxford Dictionaries app id (you can get it from https://developer.oxforddictionaries.com)")
-  .option("-f, --using-free-plan", "Use this if you're using the free plan of the oxford dictionaries api (it throttles requests to prevent reaching the maximum of 60 per second)")
+  .option("-f, --using-free-plan", "Use this if you're using the free plan of the oxford dictionaries api (it throttles requests to prevent reaching the maximum of 60 per minute)")
   .parse(process.argv);
 
 if (!program.input) {
