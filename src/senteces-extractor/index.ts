@@ -46,6 +46,7 @@ export default async function getDefinitions({
         }
 
         const trimmedWord = word.trim().toLowerCase();
+        progressBar.tick({ word : trimmedWord });
         let data = null;
         try {
             data = await fetch(trimmedWord, { appId, appKey });
@@ -61,7 +62,6 @@ export default async function getDefinitions({
 
         const missingWordDocuments: MissingWordDocument[] = R.map(R.compose(blankWords, assocSentences))(wordDocuments);
         outputData = outputData.concat(missingWordDocuments);
-        progressBar.tick({ word : trimmedWord });
     }
 
     if (notFoundDefinitions.length) {
