@@ -1,8 +1,9 @@
 import "source-map-support/register";
 
-import * as program      from "commander";
-import * as path         from "path";
-import chalk             from "chalk";
+import * as program   from "commander";
+import * as path      from "path";
+import * as R         from "ramda";
+import chalk          from "chalk";
 import {
     readFile,
     writeFile,
@@ -10,6 +11,7 @@ import {
 } from "fs-extra";
 
 import sentencesExtractor from "./senteces-extractor";
+import shuffle            from "./shuffle";
 
 program
   .version("0.1.0")
@@ -67,6 +69,6 @@ async function main() {
         appId            : program.appId
     });
     
-    await writeFile(program.output, output.join("\n"));
+    await writeFile(program.output, R.compose(R.join("\n"), shuffle(3))(output));
     console.log(chalk.green(`File was saved successfully to ${chalk.yellow(program.output)}`));
 }
