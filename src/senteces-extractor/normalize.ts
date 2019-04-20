@@ -7,6 +7,7 @@ export default function normalize(entries: any, includeSubsenses: boolean): Word
     lexicalEntries.forEach(({ lexicalCategory, entries }) => {
         entries.forEach(({ senses }) => {
             senses.forEach(({ definitions, id, subsenses }) => {
+                if (!definitions) return;
                 wordDocuments.push({
                     definitions : definitions.join(", "),
                     type : lexicalCategory,
