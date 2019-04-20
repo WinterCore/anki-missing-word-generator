@@ -10,13 +10,13 @@ import * as R from "ramda";
 function createDefinitionCards({ definitions, examples, word, type }: MissingWordDocument): string {
     return examples.map(example => {
         const front = `<div>${example}</div><br/><div><b>[${type}]</b></div><div>${definitions}</div>`;
-        const back  = `<div>${word}</div>`;
-        return `${front};${back}`;
+        const extra = ``;
+        return `${front};${extra}`;
     }).join("\n");
 }
 
-const blankDocumentExamples = (doc: MissingWordDocument) =>
-    doc.examples.map(example => example.replace(new RegExp(`${doc.word}(?:ed|ied|s|es|ies|ing)?`, "i"), "_".repeat(doc.word.length)));
+const clozify = (doc: MissingWordDocument) =>
+    doc.examples.map(example => example.replace(new RegExp(`(${doc.word}\\w+)\\s`, "i"), "{{c1::$1}} "));
 
 const wait = ms => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -58,7 +58,7 @@ export default async function getDefinitions({
         const wordDocuments: WordDocument[] = normalize(entries, includeSubsenses);
 
         const assocSentences = R.converge(R.assoc("examples"), [examplify(sentences, count), R.identity]);
-        const blankWords     = R.converge(R.assoc("examples"), [blankDocumentExamples, R.identity]);
+        const blankWords     = R.converge(R.assoc("examples"), [clozify, R.identity]);
 
         const missingWordDocuments: MissingWordDocument[] = R.map(R.compose(blankWords, assocSentences))(wordDocuments);
         outputData = outputData.concat(missingWordDocuments);
