@@ -67,6 +67,6 @@ async function main() {
         appId            : program.appId
     });
     
-    await writeFile(program.output, output);
+    await writeFile(program.output, output.join("\n"));
     console.log(chalk.green(`File was saved successfully to ${chalk.yellow(program.output)}`));
 }

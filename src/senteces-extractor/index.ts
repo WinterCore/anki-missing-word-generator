@@ -27,7 +27,7 @@ export default async function getDefinitions({
     throttle,
     count = 2,
     includeSubsenses = false
-}: args): Promise<string> {
+}: args): Promise<string[]> {
 
     const progressBar: ProgressBar = new ProgressBar(`Fetching data ${chalk.green("[:bar]")} ${chalk.yellow(":word")}`, {
         total : words.length,
@@ -72,5 +72,5 @@ export default async function getDefinitions({
         console.log();
     }
 
-    return R.compose(R.join("\n"), R.map(createDefinitionCards))(outputData);
+    return R.compose(R.map(createDefinitionCards))(outputData);
 }
