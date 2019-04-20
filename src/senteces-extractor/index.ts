@@ -46,8 +46,8 @@ export default async function getDefinitions({
         }
 
         const trimmedWord: string = word.trim().toLowerCase();
-
         progressBar.tick({ word : trimmedWord });
+        if (!trimmedWord.length) continue;
         let data = null;
         try {
             data = await fetch(trimmedWord, { appId, appKey });
