@@ -16,7 +16,7 @@ function createDefinitionCards({ definitions, examples, word, type }: MissingWor
 }
 
 const clozify = (doc: MissingWordDocument): string[] =>
-    doc.examples.map(example => example.replace(new RegExp(`(${doc.word}\\w+)\\s`, "i"), "{{c1::$1}} "));
+    doc.examples.map(example => example.replace(new RegExp(`(${doc.word}[\\w']*)([\\s\\.,])`, "i"), "{{c1::$1}}$2"));
 
 const wait = (ms: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, ms));
 
