@@ -69,6 +69,6 @@ async function main() {
         appId            : program.appId
     });
     
-    await writeFile(program.output, R.compose(R.join("\n"), shuffle(3))(output));
+    await writeFile(program.output, R.compose(R.join("\n"), shuffle(10))(output));
     console.log(chalk.green(`File was saved successfully to ${chalk.yellow(program.output)}`));
 }
