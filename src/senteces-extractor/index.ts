@@ -15,10 +15,10 @@ function createDefinitionCards({ definitions, examples, word, type }: MissingWor
     }).join("\n");
 }
 
-const clozify = (doc: MissingWordDocument) =>
+const clozify = (doc: MissingWordDocument): string[] =>
     doc.examples.map(example => example.replace(new RegExp(`(${doc.word}\\w+)\\s`, "i"), "{{c1::$1}} "));
 
-const wait = ms => new Promise((resolve) => setTimeout(resolve, ms));
+const wait = (ms: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, ms));
 
 export default async function getDefinitions({
     words,
@@ -27,16 +27,16 @@ export default async function getDefinitions({
     throttle,
     count = 2,
     includeSubsenses = false
-}: args) {
+}: args): Promise<string> {
 
-    const progressBar = new ProgressBar(`Fetching data ${chalk.green("[:bar]")} ${chalk.yellow(":word")}`, {
+    const progressBar: ProgressBar = new ProgressBar(`Fetching data ${chalk.green("[:bar]")} ${chalk.yellow(":word")}`, {
         total : words.length,
         width : 30
     });
 
-    let notFoundDefinitions               = [];
+    let notFoundDefinitions: string[]     = [];
     let outputData: MissingWordDocument[] = [];
-    let lastRequestTimestamp              = Date.now();
+    let lastRequestTimestamp: number      = Date.now();
 
     for (const word of words) {
         if (throttle) {
@@ -45,7 +45,8 @@ export default async function getDefinitions({
             lastRequestTimestamp = Date.now();
         }
 
-        const trimmedWord = word.trim().toLowerCase();
+        const trimmedWord: string = word.trim().toLowerCase();
+
         progressBar.tick({ word : trimmedWord });
         let data = null;
         try {
