@@ -15,7 +15,9 @@ This is a simple tool that helps you generate cloze cards for words that you wan
 * Clone this repository `git clone https://github.com/WinterCore/anki-missing-word-generator.git`
 * Change your current working directory to the cloned repo `cd anki-missing-word-generator`
 * Obtain an [oxford dictionaries api] APP_KEY and APP_ID (The free plan is about 3k requests a month, which is about 1500 words)
-* `node dist/index.min.js -i [words_input_file] -o [cloze_cards_output_file] -k [APP_KEY] -d [API_KEY]` Check the [options](#options) below
+* run `npm install`
+* run `npm run build`
+* run `node dist/index.min.js -i [words_input_file] -o [cloze_cards_output_file] -k [APP_KEY] -d [API_KEY]` Check the [options](#options) below
 * [import into anki](#importing-into-anki)
 * Enjoy
 
