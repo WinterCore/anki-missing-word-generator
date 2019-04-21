@@ -15,8 +15,15 @@ function createDefinitionCards({ definitions, examples, word, type }: MissingWor
     }).join("\n");
 }
 
+const regexGenerator = (word: string): RegExp => {
+    let edgeCases: string = "";
+    if (["y", "e"].indexOf(word[word.length - 1].toLowerCase()) > -1)
+        edgeCases = `|(?:${word.substr(0, word.length - 1)}[\\w']*)`;
+    return new RegExp(`((?:${word}[\\w']*)${edgeCases})([\\s\\.,])`, "i");
+};
+
 const clozify = (doc: MissingWordDocument): string[] =>
-    doc.examples.map(example => example.replace(new RegExp(`(${doc.word}[\\w']*)([\\s\\.,])`, "i"), "{{c1::$1}}$2"));
+    doc.examples.map(example => example.replace(regexGenerator(doc.word), "{{c1::$1}}$2"));
 
 const wait = (ms: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, ms));
 
