@@ -65,12 +65,12 @@ This is a simple tool that helps you generate cloze cards for words that you wan
 1. From the `file` menu select `import`
 2. Select your output file
 3. Import options
-   `Type` Should be set to `Cloze`
-   `Deck` Choose the deck that you want to import the cards into
-   `Fields separated by` Click on it to open the dialog and insert a single semicolo `;` then click on OK
-   `Allow HTML in fields` Should be checked
-   `Field 1 of file is` Should be `mapped to Text`
-   `Field 2 of file is` Should be `mapped to Extra`
+    * `Type` Should be set to `Cloze`
+    * `Deck` Choose the deck that you want to import the cards into
+    * `Fields separated by` Click on it to open the dialog and insert a single semicolo `;` then click on OK
+    * `Allow HTML in fields` Should be checked
+    * `Field 1 of file is` Should be `mapped to Text`
+    * `Field 2 of file is` Should be `mapped to Extra`
 4. Click on import
 
 ## License
