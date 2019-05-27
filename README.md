@@ -53,7 +53,7 @@ This is a simple tool that helps you generate cloze cards for words that you wan
 * `-f` or `--using-free-plan`
 
     Use this option if you're using the free plan of the [oxford dictionaries api]
-    This throttles the requests to 59-60 per minute to prevent reaching the maximum of 60 requests per second
+    This throttles the requests to 59-60 per minute to prevent reaching the maximum of 60 requests per minute
     This option might make the process slower but it is necessary to prevent the api from refusing requests after reaching the maximum
 
 * `-h` or `--help`
